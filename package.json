@@ -1,0 +1,26 @@
+{
+  "name": "ayudantia-arquitectura-de-sistemas-2025",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasFontecillaBusch/ayudantia-arquitectura-de-sistemas-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasFontecillaBusch/ayudantia-arquitectura-de-sistemas-2025/issues"
+  },
+  "homepage": "https://github.com/MatiasFontecillaBusch/ayudantia-arquitectura-de-sistemas-2025#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  }
+}
