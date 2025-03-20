@@ -1,5 +1,5 @@
 # Ayudantia Arquitectura de Sistemas
-Este es el repositorio que sera utilizado durante la  ayudantíade arquitectura de sistemas, en este se encontrara todo lo desarrollado durante las capsulas.
+Este es el repositorio que sera utilizado durante la  ayudantía de arquitectura de sistemas, en este se encontrara todo lo desarrollado durante las capsulas.
 
 ## Pre-requisitos
 - [Node.js](https://nodejs.org/es/) (version 22.14.0)
