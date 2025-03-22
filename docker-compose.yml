@@ -1,0 +1,31 @@
+services:
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb-ayudantia
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: root
+        ports:
+        - "27017:27017"
+
+    mariadb:
+        image: mariadb:latest
+        container_name: mariadb-ayudantia
+        environment:
+            MYSQL_ROOT_PASSWORD: rootpassword
+            MYSQL_DATABASE: mydatabase
+            MYSQL_USER: user
+            MYSQL_PASSWORD: userpassword
+        ports:
+            - "3306:3306"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: phpmyadmin-ayudantia
+        environment:
+            PMA_HOST: mariadb
+            PMA_USER: root
+            PMA_PASSWORD: rootpassword
+        ports:
+        - "8080:80"
