@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "9fc613ed-1fbe-40d7-9228-ea4dc0eaaae5",
+		"name": "A. Arquitectura de Sistemas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39608287"
+	},
+	"item": [
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "Flujo",
+					"item": [
+						{
+							"name": "Create Subject",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status es 201\", function () {",
+											"    pm.response.to.have.status(201)",
+											"})",
+											"",
+											"const jsonData = pm.response.json();",
+											"if(jsonData && jsonData.id){",
+											"    pm.environment.set(\"asignatura_id\",jsonData.id)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"PRUEBA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/subjects",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Subjects",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/subjects",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Subject",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Sistemas de Informacion III\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/subjects/{{asignatura_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects",
+										"{{asignatura_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Subjects By Id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/subjects/{{asignatura_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects",
+										"{{asignatura_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Subject",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/subjects/{{asignatura_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects",
+										"{{asignatura_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"SI II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/subjects",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Subjects",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/subjects",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Subjects By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/subjects/5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subject",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/subjects/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Subject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/subjects/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
