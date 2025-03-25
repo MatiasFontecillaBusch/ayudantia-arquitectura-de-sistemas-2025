@@ -20,6 +20,23 @@ cd ayudantia-arquitectura-de-sistemas-2025
 ```bash
 npm install
 ```
+
+4. **Crear un archivo `.env` en la raíz del proyecto y ingresar las variables de entorno**
+```bash
+cp .env.example .env
+```
+
+5. **Generar cliente de prisma**
+```bash
+npx prisma generate
+```
+
+6. **Crear la base de datos**
+```bash
+npx prisma db push
+```
+
+
 ## Ejecutar la aplicación
 ```bash
 npm start
