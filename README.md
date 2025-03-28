@@ -3,6 +3,8 @@ Este es el repositorio que sera utilizado durante la  ayudantía de arquitectura
 
 ## Pre-requisitos
 - [Node.js](https://nodejs.org/es/) (version 22.14.0)
+- [MariaDB](https://mariadb.org/) (version 10.7.4)
+- [MongoDB](https://www.mongodb.com/try/download/community) (version 5.0.3)
 
 ## Instalación y configuración
 
