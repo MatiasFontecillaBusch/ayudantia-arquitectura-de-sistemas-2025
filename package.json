@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "seed": "node src/database/seeders/seeder.js"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,14 @@
   "homepage": "https://github.com/MatiasFontecillaBusch/ayudantia-arquitectura-de-sistemas-2025#readme",
   "dependencies": {
     "@prisma/client": "^6.5.0",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.12.1",
     "morgan": "^1.10.0",
     "prisma": "^6.5.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.6.0"
   }
 }

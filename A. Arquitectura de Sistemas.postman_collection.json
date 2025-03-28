@@ -1,31 +1,31 @@
 {
 	"info": {
-		"_postman_id": "9fc613ed-1fbe-40d7-9228-ea4dc0eaaae5",
-		"name": "A. Arquitectura de Sistemas",
+		"_postman_id": "d4b885cd-f658-4f18-9577-a7abdace9ee2",
+		"name": "MISC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "39608287"
 	},
 	"item": [
 		{
-			"name": "Subjects",
+			"name": "Asignaturas",
 			"item": [
 				{
-					"name": "Flujo",
+					"name": "Flujo CRURD",
 					"item": [
 						{
-							"name": "Create Subject",
+							"name": "Create SII 2",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Status es 201\", function () {",
-											"    pm.response.to.have.status(201)",
-											"})",
+											"pm.test('Status code is 201', function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
 											"",
-											"const jsonData = pm.response.json();",
+											"let jsonData = pm.response.json();",
 											"if(jsonData && jsonData.id){",
-											"    pm.environment.set(\"asignatura_id\",jsonData.id)",
+											"    pm.environment.set('asignatura_id', jsonData.id);",
 											"}"
 										],
 										"type": "text/javascript",
@@ -38,7 +38,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"PRUEBA\"\n}",
+									"raw": "{\n    \"name\":\"Sistemas de Información II\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -58,42 +58,59 @@
 							"response": []
 						},
 						{
-							"name": "Read Subjects",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "Read SII 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
-									"raw": "{{URL}}/subjects",
+									"raw": "{{URL}}/subjects/{{asignatura_id}}",
 									"host": [
 										"{{URL}}"
 									],
 									"path": [
-										"subjects"
+										"subjects",
+										"{{asignatura_id}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Update Subject",
+							"name": "Update SII 2 to 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Status code is 200', function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\":\"Sistemas de Informacion III\"\n}",
+									"raw": "{\n    \"name\":\"Sistemas de Información II\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -114,49 +131,65 @@
 							"response": []
 						},
 						{
-							"name": "Read Subjects By Id",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
+							"name": "Delete SII 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Status code is 204', function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
 									}
-								},
-								"url": {
-									"raw": "{{URL}}/subjects/{{asignatura_id}}",
-									"host": [
-										"{{URL}}"
-									],
-									"path": [
-										"subjects",
-										"{{asignatura_id}}"
-									]
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Subject",
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n    \"name\":\"Sistemas de Información II\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
+								"url": {
+									"raw": "{{URL}}/subjects/{{asignatura_id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"subjects",
+										"{{asignatura_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Deleted SII 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Status code is 404', function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
 								"url": {
 									"raw": "{{URL}}/subjects/{{asignatura_id}}",
 									"host": [
@@ -173,13 +206,13 @@
 					]
 				},
 				{
-					"name": "Create Subject",
+					"name": "Create Asignaturas",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"SI II\"\n}",
+							"raw": "{\n    \"name\":\"Sistemas de Información II\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,22 +232,10 @@
 					"response": []
 				},
 				{
-					"name": "Read Subjects",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Read Asignaturas",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{URL}}/subjects",
 							"host": [
@@ -228,43 +249,31 @@
 					"response": []
 				},
 				{
-					"name": "Read Subjects By Id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Read Asignaturas By ID",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{URL}}/subjects/5",
+							"raw": "{{URL}}/subjects/2",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"subjects",
-								"5"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Update Subject",
+					"name": "Update Asignaturas",
 					"request": {
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"Sistemas de Informacion II\"\n}",
+							"raw": "{\n    \"name\":\"AAAA\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -272,26 +281,67 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/subjects/4",
+							"raw": "{{URL}}/subjects/1",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"subjects",
-								"4"
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete Subject",
+					"name": "Delete Asignaturas",
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"url": {
+							"raw": "{{URL}}/subjects/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seed Asignaturas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/subjects/seed",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"subjects",
+								"seed"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"name\":\"Matias\",\n    \"lastName\":\"Fontecilla\",\n    \"email\":\"matias.fontecilla@alumnos.ucn.cl\",\n    \"rol\":\"Administrador\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -299,13 +349,110 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/subjects/4",
+							"raw": "{{URL}}/users",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"subjects",
-								"4"
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/31f3931e-fcbe-45cc-9df0-b6975650aa19",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"31f3931e-fcbe-45cc-9df0-b6975650aa19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Pedro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/31f3931e-fcbe-45cc-9df0-b6975650aa19",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"31f3931e-fcbe-45cc-9df0-b6975650aa19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/31f3931e-fcbe-45cc-9df0-b6975650aa19",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"31f3931e-fcbe-45cc-9df0-b6975650aa19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seed Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/seed",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"seed"
 							]
 						}
 					},

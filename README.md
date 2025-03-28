@@ -45,6 +45,12 @@ npm start
 ```
 El servidor se iniciará en el puerto **3000** (o en el puerto definido en la variable de entorno `PORT`). Accede a la API mediante `http://localhost:3000`.
 
+## Seeder
+Para poblar la base de datos con datos de prueba, ejecuta el siguiente comando:
+```bash
+npm run seed
+```
+
 # Extras
 Lo que se encuentra a continuación es un listado de recursos que podrían ser de utilidad para el desarrollo del curso, a medida que se avance ire agregando mas cosas.
 

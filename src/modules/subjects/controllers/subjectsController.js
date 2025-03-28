@@ -56,6 +56,11 @@ const deleteSubjectById = catchAsync(async (req, res, next) => {
   }
   res.status(204).end();
 });
+const seedSubjects = catchAsync(async (req, res, next) => {
+  const subjects = await seedSubjectsMock();
+
+  return res.status(200).json(subjects);
+});
 
 module.exports = {
   getAllSubjects,
@@ -63,4 +68,5 @@ module.exports = {
   getSubjectById,
   updateSubjectById,
   deleteSubjectById,
+  seedSubjects,
 };

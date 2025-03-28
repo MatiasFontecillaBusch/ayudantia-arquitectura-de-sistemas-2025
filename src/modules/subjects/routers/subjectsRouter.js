@@ -5,6 +5,7 @@ const {
   getSubjectById,
   updateSubjectById,
   deleteSubjectById,
+  seedSubjects,
 } = require("../controllers/subjectsController");
 
 const subjectsRouter = Router();
@@ -15,8 +16,9 @@ const subjectsRouter = Router();
 
 // subjectsRouter.get("/", getAllSubjects);
 // subjectsRouter.post("/", createSubject);
-
 subjectsRouter.route("/").get(getAllSubjects).post(createSubject);
+
+subjectsRouter.route("/seed").post(seedSubjects);
 
 // /subjects/asfsafa id = asfsafa en req.params.id
 subjectsRouter

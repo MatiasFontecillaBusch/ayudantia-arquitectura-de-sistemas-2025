@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Tad",
+    "lastName": "Garvey",
+    "email": "tgarvey0@archive.org",
+    "rol": "Administrador",
+    "createdAt": "5/7/2019 12:52:00",
+    "deletedAt": "2/18/2001 10:41:35",
+    "lastLogin": "12/7/2020 07:14:23"
+  },
+  {
+    "name": "Salmon",
+    "lastName": "Beard",
+    "email": "sbeard1@archive.org",
+    "rol": "Administrador",
+    "createdAt": "4/30/2002 09:44:37",
+    "deletedAt": "2/5/2004 16:08:16",
+    "lastLogin": "10/29/2011 21:38:01"
+  },
+  {
+    "name": "Ophelia",
+    "lastName": "Bisset",
+    "email": "obisset2@ask.com",
+    "rol": "Cliente",
+    "createdAt": "4/12/2018 07:31:57",
+    "deletedAt": "10/6/2013 21:32:40",
+    "lastLogin": "9/11/2006 17:32:11"
+  },
+  {
+    "name": "Creighton",
+    "lastName": "Brimelow",
+    "email": "cbrimelow3@scientificamerican.com",
+    "rol": "Administrador",
+    "createdAt": "3/8/2020 23:03:58",
+    "deletedAt": "5/18/2009 17:34:01",
+    "lastLogin": "12/28/2016 04:16:21"
+  },
+  {
+    "name": "Cherilyn",
+    "lastName": "Tookill",
+    "email": "ctookill4@yelp.com",
+    "rol": "Cliente",
+    "createdAt": "2/20/2001 12:28:49",
+    "deletedAt": "7/3/2003 20:01:04",
+    "lastLogin": "3/16/2010 08:38:54"
+  },
+  {
+    "name": "Carline",
+    "lastName": "Dobsons",
+    "email": "cdobsons5@behance.net",
+    "rol": "Cliente",
+    "createdAt": "8/17/2010 04:54:52",
+    "deletedAt": "12/16/2018 01:59:00",
+    "lastLogin": "10/22/2022 09:12:53"
+  },
+  {
+    "name": "Jerald",
+    "lastName": "Creasey",
+    "email": "jcreasey6@state.gov",
+    "rol": "Cliente",
+    "createdAt": "8/11/2020 19:37:37",
+    "deletedAt": "4/20/2018 19:46:30",
+    "lastLogin": "6/23/2017 04:37:54"
+  },
+  {
+    "name": "Maynord",
+    "lastName": "Czyz",
+    "email": "mczyz7@sohu.com",
+    "rol": "Cliente",
+    "createdAt": "10/14/2016 12:41:57",
+    "deletedAt": "4/7/2015 03:29:12",
+    "lastLogin": "8/19/2006 02:58:59"
+  },
+  {
+    "name": "Madelena",
+    "lastName": "Patley",
+    "email": "mpatley8@homestead.com",
+    "rol": "Administrador",
+    "createdAt": "2/2/2004 08:24:29",
+    "deletedAt": "5/19/2005 17:59:24",
+    "lastLogin": "11/22/2011 08:47:20"
+  },
+  {
+    "name": "Michell",
+    "lastName": "Pablo",
+    "email": "mpablo9@wiley.com",
+    "rol": "Administrador",
+    "createdAt": "6/21/2018 22:24:43",
+    "deletedAt": "7/3/2007 07:22:25",
+    "lastLogin": "4/17/2003 16:19:41"
+  },
+  {
+    "name": "Merry",
+    "lastName": "Blaw",
+    "email": "mblawa@microsoft.com",
+    "rol": "Cliente",
+    "createdAt": "1/17/2003 21:03:54",
+    "deletedAt": "11/18/2018 00:14:22",
+    "lastLogin": "11/3/2014 06:35:19"
+  },
+  {
+    "name": "Genia",
+    "lastName": "Thain",
+    "email": "gthainb@amazon.de",
+    "rol": "Administrador",
+    "createdAt": "2/15/2011 11:05:46",
+    "deletedAt": "5/31/2003 09:42:02",
+    "lastLogin": "9/15/2002 06:29:06"
+  },
+  {
+    "name": "Stacie",
+    "lastName": "Westwick",
+    "email": "swestwickc@berkeley.edu",
+    "rol": "Administrador",
+    "createdAt": "1/2/2011 07:16:15",
+    "deletedAt": "9/4/2008 01:57:19",
+    "lastLogin": "3/29/2006 19:17:14"
+  },
+  {
+    "name": "Taffy",
+    "lastName": "Trowsdall",
+    "email": "ttrowsdalld@cdbaby.com",
+    "rol": "Cliente",
+    "createdAt": "5/29/2010 11:28:32",
+    "deletedAt": "8/2/2009 13:55:18",
+    "lastLogin": "7/5/2012 21:59:59"
+  },
+  {
+    "name": "Kath",
+    "lastName": "Dorrity",
+    "email": "kdorritye@google.nl",
+    "rol": "Cliente",
+    "createdAt": "8/16/2017 21:09:24",
+    "deletedAt": "9/17/2015 07:20:04",
+    "lastLogin": "7/26/2016 15:09:41"
+  },
+  {
+    "name": "Llewellyn",
+    "lastName": "Wykes",
+    "email": "lwykesf@sun.com",
+    "rol": "Administrador",
+    "createdAt": "1/17/2005 14:44:51",
+    "deletedAt": "7/24/2011 13:51:27",
+    "lastLogin": "5/21/2021 23:55:26"
+  },
+  {
+    "name": "Arly",
+    "lastName": "Showt",
+    "email": "ashowtg@wikia.com",
+    "rol": "Cliente",
+    "createdAt": "10/19/2001 11:19:29",
+    "deletedAt": "2/14/2002 05:27:10",
+    "lastLogin": "10/30/2010 05:50:46"
+  },
+  {
+    "name": "Ashby",
+    "lastName": "Myrkus",
+    "email": "amyrkush@example.com",
+    "rol": "Administrador",
+    "createdAt": "1/20/2013 05:02:06",
+    "deletedAt": "10/22/2002 05:53:30",
+    "lastLogin": "12/19/2000 06:40:47"
+  },
+  {
+    "name": "Christoffer",
+    "lastName": "Gores",
+    "email": "cgoresi@oracle.com",
+    "rol": "Administrador",
+    "createdAt": "10/16/2010 09:14:41",
+    "deletedAt": "3/18/2014 08:00:52",
+    "lastLogin": "5/31/2008 14:20:23"
+  },
+  {
+    "name": "Pietra",
+    "lastName": "Pavinese",
+    "email": "ppavinesej@reuters.com",
+    "rol": "Cliente",
+    "createdAt": "8/16/2002 03:39:43",
+    "deletedAt": "11/24/2015 05:21:32",
+    "lastLogin": "4/11/2013 04:39:49"
+  }
+]

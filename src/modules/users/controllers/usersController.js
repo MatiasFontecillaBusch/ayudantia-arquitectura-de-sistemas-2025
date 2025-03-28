@@ -1,4 +1,5 @@
 const prisma = require("../../../database/prisma");
+const { seedUsersMock } = require("../../../database/seeders/usersSeeder");
 const { default: AppError } = require("../../../utils/appError");
 const catchAsync = require("../../../utils/catchAsync");
 
@@ -45,10 +46,16 @@ const deleteUser = catchAsync(async (req, res, next) => {
   res.status(204).end();
 });
 
+const seedUser = catchAsync(async (req, res, next) => {
+  await seedUsersMock();
+  res.status(200).end();
+});
+
 module.exports = {
   getUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
+  seedUser,
 };
