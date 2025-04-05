@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package subjects;
+
+service Subjects {
+  rpc CreateSubject (CreateSubjectRequest) returns (Subject) {}
+  rpc ReadSubject (GetSubjectRequest) returns (Subject) {}
+  rpc UpdateSubject (UpdateSubjectRequest) returns (Subject) {}
+  rpc DeleteSubject (DeleteSubjectRequest) returns (Subject) {}
+  rpc GetAllSubjects (ListSubjectsRequest) returns (ListSubjectsResponse) {}
+}
+
+message Subject {
+  string id = 1;
+  string name = 2;
+}
+
+message CreateSubjectRequest {
+  string name = 1;
+}
+
+message UpdateSubjectRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message GetSubjectRequest {
+  string id = 1;
+}
+
+message DeleteSubjectRequest {
+  string id = 1;
+}
+
+message ListSubjectsRequest {}
+
+message ListSubjectsResponse {
+  repeated Subject data = 1;
+}
