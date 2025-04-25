@@ -5,6 +5,7 @@ const { connect } = require("mongoose");
 const { ServerCredentials, Server } = require("@grpc/grpc-js");
 const { loadProto } = require("./src/utils/loadProto");
 const subjectsService = require("./src/services/subjectsService");
+const initializeQueueConsumers = require("./src/queue");
 
 const environments = {
   development: "Desarrollo",
@@ -27,6 +28,9 @@ const DB = process.env.MONGO_DATABASE.replace(
 ).replace("<USER>", process.env.MONGO_USER);
 
 connect(DB).then(() => console.log("✓ Conexión a base de datos exitosa"));
+initializeQueueConsumers().then(() =>
+  console.log("✓ Conexión con RabbitMQ exitosa.")
+);
 
 const subjectsProto = loadProto("subjects");
 server.addService(subjectsProto.Subjects.service, subjectsService);

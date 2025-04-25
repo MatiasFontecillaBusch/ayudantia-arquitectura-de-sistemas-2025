@@ -17,6 +17,7 @@ message Subject {
 
 message CreateSubjectRequest {
   string name = 1;
+  string createdBy = 2;
 }
 
 message UpdateSubjectRequest {
@@ -34,6 +35,18 @@ message DeleteSubjectRequest {
 
 message ListSubjectsRequest {}
 
+message User{
+  string id = 1;
+  string name = 2;
+  string lastName = 3;
+}
+
+message SubjectWithUser{
+  string id = 1;
+  string name = 2;
+  User creator = 3;
+}
+
 message ListSubjectsResponse {
-  repeated Subject data = 1;
+  repeated SubjectWithUser data = 1;
 }

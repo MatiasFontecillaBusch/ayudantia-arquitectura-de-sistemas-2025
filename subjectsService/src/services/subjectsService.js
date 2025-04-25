@@ -10,17 +10,17 @@ const { default: AppError } = require("../../../apiGateway/src/utils/appError");
 
 // res es la respuesta tiene status, json, etc.
 const GetAllSubjects = catchAsync(async (call, callback) => {
-  const subjects = await Subjects.find();
+  const subjects = await Subjects.find().populate("creator");
   return callback(null, { data: subjects });
 });
 
 const createSubject = catchAsync(async (call, callback) => {
-  const { name } = call.request;
+  const { name, createdBy } = call.request;
   if (!name) {
     throw new AppError("Datos ingresados no validos", status.INVALID_ARGUMENT);
   }
 
-  const subject = await Subjects.create({ name });
+  const subject = await Subjects.create({ name, createdBy });
   return callback(null, subject);
 });
 
