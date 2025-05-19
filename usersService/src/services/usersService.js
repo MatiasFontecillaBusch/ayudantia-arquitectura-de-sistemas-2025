@@ -2,6 +2,7 @@ const catchAsync = require("../utils/catchAsync");
 const prisma = require("../database/prisma");
 const { status } = require("@grpc/grpc-js");
 const userCreationEvent = require("../queue/producers/usersProducer");
+const Email = require("./mailService");
 
 const GetAllUsers = catchAsync(async (call, callback) => {
   const users = await prisma.users.findMany();
@@ -27,6 +28,7 @@ const CreateUser = catchAsync(async (call, callback) => {
     data: { name, lastName, email, rol },
   });
   await userCreationEvent(newUser);
+  await new Email().sendRegisterEmail(newUser);
   return callback(null, newUser);
 });
 

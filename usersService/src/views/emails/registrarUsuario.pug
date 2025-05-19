@@ -1,0 +1,19 @@
+extends ./base/baseEmail
+
+block content
+  p Felicitaciones por registrarte en nuestro servicio de registro de usuarios, estos son los datos que ingresaste:
+
+  table.info-table(role="presentation", border="0", cellpadding="0", cellspacing="0")
+    thead
+        tr
+        th.info-table-header(colspan="3") Datos
+    tbody
+        tr
+            td.info-table-cell(colspan="1") Nombre
+            td.info-table-cell(colspan="2") #{user.name}
+        tr
+            td.info-table-cell(colspan="1") Apellido
+            td.info-table-cell(colspan="2") #{user.lastName}
+        tr
+            td.info-table-cell(colspan="1") Rol
+            td.info-table-cell(colspan="2") #{user.rol}
