@@ -1,7 +1,7 @@
 const { default: AppError } = require("../utils/appError");
 
 const sendErrorDev = (err, req, res) => {
-  res.status(err.statusCode).json({
+  res.status(err.statusCode || 500).json({
     status: err.status,
     error: err,
     msg: err.message,
@@ -11,7 +11,7 @@ const sendErrorDev = (err, req, res) => {
 
 const sendErrorProd = (err, req, res) => {
   if (err.isOperational) {
-    res.status(err.statusCode).json({
+    res.status(err.statusCode || 500).json({
       status: err.status,
       msg: err.message,
     });
@@ -31,7 +31,6 @@ const globalErrorMiddleware = (err, req, res, next) => {
   }
 
   let error = err;
-
 
   if (process.env.NODE_ENV === "development") {
     return sendErrorDev(error, req, res);

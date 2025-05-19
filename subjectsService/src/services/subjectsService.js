@@ -6,7 +6,7 @@
 const { status } = require("@grpc/grpc-js");
 const catchAsync = require("../utils/catchAsync");
 const Subjects = require("../database/models/subjectsModel");
-const { default: AppError } = require("../../../apiGateway/src/utils/appError");
+const { default: AppError } = require("../utils/appError");
 
 // res es la respuesta tiene status, json, etc.
 const GetAllSubjects = catchAsync(async (call, callback) => {

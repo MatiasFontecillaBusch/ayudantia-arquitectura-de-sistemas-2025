@@ -3,6 +3,8 @@ const prisma = require("../database/prisma");
 const { status } = require("@grpc/grpc-js");
 const userCreationEvent = require("../queue/producers/usersProducer");
 const Email = require("./mailService");
+const { default: AppError } = require("../utils/appError");
+
 
 const GetAllUsers = catchAsync(async (call, callback) => {
   const users = await prisma.users.findMany();
