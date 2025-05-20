@@ -9,6 +9,35 @@ services:
         ports:
         - "27017:27017"
 
+    users:
+        build: ./usersService
+        container_name: users-ayudantia
+        restart: always
+        environment:
+            PORT: 3002
+            NODE_ENV: development
+            RABBITMQ_URL: "amqp://guest:guest@rabbitmq-ayudantia:5672"
+            DATABASE_URL: "mysql://root:rootpassword@mariadb-ayudantia:3306/users"
+            SERVER_URL: "users"
+            SEND_EMAIL: "NO"
+        ports:
+        - "3002:3002"
+
+    subjects:
+        build: ./subjectsService
+        container_name: subjects-ayudantia
+        restart: always
+        environment:
+            PORT: 3001
+            NODE_ENV: development
+            MONGO_DATABASE: "mongodb://<USER><PASSWORD>mongodb-ayudantia:27017/db?authSource=admin"
+            RABBITMQ_URL: "amqp://guest:guest@rabbitmq-ayudantia:5672"
+            MONGO_PASSWORD: "root@"
+            MONGO_USER: "admin:"
+            SERVER_URL: "subjects"
+        ports:
+        - "3001:3001"
+
     mariadb:
         image: mariadb:latest
         container_name: mariadb-ayudantia
@@ -29,3 +58,30 @@ services:
             PMA_PASSWORD: rootpassword
         ports:
         - "8080:80"
+
+    rabbitmq:
+        image: rabbitmq:3-management 
+        container_name: rabbitmq-ayudantia
+        ports:
+        - "5672:5672"       
+        - "15672:15672"    
+        environment:
+            RABBITMQ_DEFAULT_USER: guest
+            RABBITMQ_DEFAULT_PASS: guest
+    
+    nginx:
+        image: nginx:latest
+        container_name: nginx-ayudantia
+        ports:
+        - "80:80"
+        - "443:443"
+        volumes:
+        # En windows seria C:\nginx\ o C:\tools\nginx\  dependiendo de la instalación
+        - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./nginx/poetry.js:/etc/nginx/njs/poetry.js:ro
+        - ./nginx/postdata.log:/var/log/nginx/postdata.log
+        - ./nginx/mycert.pem:/etc/nginx/ssl/mycert.pem:ro
+        - ./nginx/mykey.pem:/etc/nginx/ssl/mykey.pem:ro
+        extra_hosts:
+        # Porque estoy usando Ubuntu
+        - "host.docker.internal:host-gateway"

@@ -1,0 +1,15 @@
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm ci
+
+COPY . .
+
+EXPOSE 3002
+
+RUN npx prisma generate
+
+CMD npm start
