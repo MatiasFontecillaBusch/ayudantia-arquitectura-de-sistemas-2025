@@ -2,7 +2,7 @@ class AppError extends Error {
   constructor(message, statusCode) {
     super(message);
 
-    this.statusCode = statusCode;
+    this.statusCode = statusCode || 500;
     this.status = "error";
     this.isOperational = true;
 
@@ -10,4 +10,4 @@ class AppError extends Error {
   }
 }
 
-export default AppError;
+module.exports = AppError;

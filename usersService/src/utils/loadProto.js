@@ -1,8 +1,8 @@
-import { loadPackageDefinition } from "@grpc/grpc-js";
-import protoLoader from "@grpc/proto-loader";
-import path from "path";
+const { loadPackageDefinition } = require("@grpc/grpc-js");
+const protoLoader = require("@grpc/proto-loader");
+const path = require("path");
 
-export function loadProto(serviceName) {
+function loadProto(serviceName) {
   const PROTO_PATH = path.join("src", "protos", `${serviceName}.proto`);
   const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     keepCase: true,
@@ -14,3 +14,5 @@ export function loadProto(serviceName) {
 
   return loadPackageDefinition(packageDefinition)[serviceName];
 }
+
+module.exports = { loadProto };

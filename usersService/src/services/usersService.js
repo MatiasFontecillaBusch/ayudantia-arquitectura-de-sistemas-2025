@@ -5,7 +5,6 @@ const userCreationEvent = require("../queue/producers/usersProducer");
 const Email = require("./mailService");
 const { default: AppError } = require("../utils/appError");
 
-
 const GetAllUsers = catchAsync(async (call, callback) => {
   const users = await prisma.users.findMany();
   return callback(null, { data: users });
@@ -16,7 +15,7 @@ const ReadUser = catchAsync(async (call, callback) => {
     where: { id: call.request.id },
   });
   if (!user) {
-    return next(new AppError("Usuario no encontrado", 404));
+    throw new AppError("Usuario no encontrado", 404);
   }
   return callback(null, user);
 });
@@ -24,7 +23,7 @@ const ReadUser = catchAsync(async (call, callback) => {
 const CreateUser = catchAsync(async (call, callback) => {
   const { name, lastName, email, rol } = call.request;
   if (!name || !email) {
-    return next(new AppError("Faltan campos requeridos", 400));
+    throw new AppError("Faltan campos requeridos", 400);
   }
   const newUser = await prisma.users.create({
     data: { name, lastName, email, rol },

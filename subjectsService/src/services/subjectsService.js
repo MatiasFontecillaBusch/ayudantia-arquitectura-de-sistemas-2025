@@ -28,7 +28,7 @@ const ReadSubject = catchAsync(async (call, callback) => {
   const { id } = call.request;
   const subject = await Subjects.findOne({ id: id });
   if (!subject) {
-    return next(new AppError("Asignatura no encontrada", 404));
+    throw new AppError("Asignatura no encontrada", 404);
   }
   return callback(null, subject);
 });
