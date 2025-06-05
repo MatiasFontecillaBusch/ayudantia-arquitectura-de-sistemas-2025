@@ -29,8 +29,7 @@ const CreateUser = catchAsync(async (req, res, next) => {
       return next(error);
     }
 
-    console.log(response);
-    res.status(200).json(response);
+    res.status(201).json(response);
   });
 });
 

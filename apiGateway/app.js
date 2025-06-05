@@ -26,8 +26,27 @@ app.use("/users", usersRouter);
 
 app.use(globalErrorMiddleware);
 
-app.listen(process.env.PORT, () => {
-  console.log(`- Entorno:      ${process.env.NODE_ENV}`);
-  console.log(`- Puerto:       ${process.env.PORT}`);
-  console.log(`- URL:          http://localhost:${process.env.PORT}`);
-});
+if (require.main === module) {
+  const server = app.listen(process.env.PORT, () => {
+    console.log(`- Entorno:      ${process.env.NODE_ENV}`);
+    console.log(`- Puerto:       ${process.env.PORT}`);
+    console.log(`- URL:          http://localhost:${process.env.PORT}`);
+  });
+
+  process.on("unhandledRejection", (err) => {
+    console.log("UNHANDLED REJECTION! Apagando el servidor...");
+    console.log(err.name, err.message);
+    server.close(() => {
+      process.exit(1);
+    });
+  });
+
+  process.on("SIGTERM", () => {
+    console.log("SIGTERM RECEIVED. Apagando el servidor.");
+    server.close(() => {
+      console.log("Servidor apagado!");
+    });
+  });
+}
+
+module.exports = app;

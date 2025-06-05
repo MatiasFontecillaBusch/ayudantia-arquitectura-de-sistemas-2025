@@ -1,0 +1,48 @@
+name: Test User Service
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    env:
+      PORT: 3000
+      NODE_ENV: development
+      SUBJECTS_SERVICE_URL: "localhost:3001"
+      USERS_SERVICE_URL: "localhost:3002"
+
+    steps:
+      - name: Ver código en el mismo repositorio
+        uses: actions/checkout@v3
+
+      - name: Start Services
+        run: docker compose up -d
+
+      - name: Wait for Databases to be Ready
+        run: sleep 20
+
+      - name: Ejecutar Prisma Migration
+        run: |
+          docker exec users-ayudantia npx prisma migrate dev --name init --preview-feature
+
+      - name: Install Dependencies
+        working-directory: apiGateway
+        run: npm install
+        shell: bash
+
+      - name: Run Tests
+        working-directory: apiGateway
+        run: npm test
+        env:
+          PORT: ${{ env.PORT }}
+          NODE_ENV: ${{ env.NODE_ENV }}
+          SUBJECTS_SERVICE_URL: ${{ env.SUBJECTS_SERVICE_URL }}
+          USERS_SERVICE_URL: ${{ env.USERS_SERVICE_URL }}
+        shell: bash
+
+      - name: Stop Docker Containers
+        if: always()
+        run: docker compose down
